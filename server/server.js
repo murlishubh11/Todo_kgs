@@ -9,7 +9,7 @@ import path from 'path'
 import UserRoutes from './Routes/User.js'
 import TaskRoutes from './Routes/Task.js'
 import { Register } from './Controllers/User.js'
-//import tasks from './data/tasks.js'
+import tasks from './data/tasks.js'
 import Task from './models/Task.js'
 
 
@@ -52,7 +52,7 @@ const PORT = process.env.PORT || 5000
 mongoose.connect(process.env.MONGO_DB).then(() => {
     app.listen(PORT , () => {
         //One time insertion to Db
-      //  Task.insertMany(tasks)
+       Task.insertMany(tasks)
         console.log(`app is listening to PORT ${PORT}`)
     })
 }).catch((err) => {
